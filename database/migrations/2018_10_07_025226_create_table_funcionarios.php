@@ -19,7 +19,7 @@ class CreateTableFuncionarios extends Migration
             $table->string('email')->unique();
             $table->string('senha');
             $table->string('cargo');
-            $table->string('cpf')->unique();
+            $table->string('cpf_cnpj')->unique();
             $table->string('telefone');
             $table->string('cidade');
             $table->string('cep');

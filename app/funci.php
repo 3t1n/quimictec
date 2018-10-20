@@ -18,7 +18,7 @@ class funci extends Model
         'departamento',
         'cargo',
         'email',
-        'cpf',
+        'cpf_cnpj',
         'telefone',
         'cep',
         'bairro',

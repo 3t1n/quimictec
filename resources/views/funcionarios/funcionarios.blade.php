@@ -119,14 +119,27 @@
                          <label for="dp" class="font-weight-bold">Departamento </label>
                          <select id="dp"  name="departamento" class="form-control">
                              <option selected>Departamento</option>
-                             <option value="PeD" @if(old('dp') == 'PeD')selected @endif>Pesquisa e Desenvolvimento</option>
-                             <option value="COM" @if(old('dp') == 'COM')selected @endif>Compras</option>
-                             <option value="VED" @if(old('dp') == 'VED')selected @endif>Vendas</option>
-                             <option value="NF" @if(old('dp') == 'NF')selected @endif>Recebimento Fiscal</option>
-                             <option value="RH" @if(old('dp') == 'RH')selected @endif>Recursos Humanos</option>
-                             <option value="ADM" @if(old('dp') == 'ADM')selected @endif>Administração</option>
+                             <option value="Pesquisa e Desenvolvimento" @if(old('dp') == 'PeD')selected @endif>Pesquisa e Desenvolvimento</option>
+                             <option value="Compras" @if(old('dp') == 'Compras')selected @endif>Compras</option>
+                             <option value="Vendas" @if(old('dp') == 'Vendas')selected @endif>Vendas</option>
+                             <option value="Recebimento Fiscal" @if(old('dp') == 'Recebimento Fiscal')selected @endif>Recebimento Fiscal</option>
+                             <option value="Recursos Humanos" @if(old('dp') == 'Recursos Humanos')selected @endif>Recursos Humanos</option>
+                             <option value="Administração" @if(old('dp') == 'Administração')selected @endif>Administração</option>
                          </select>
                          <span class="text-danger">{{ $errors->first('dp') }}</span>
+                     </div>
+                     <div class="form-group col-md-2">
+                         <label for="cargo" class="font-weight-bold">Cargo </label>
+                         <select id="cargo"  name="cargo" class="form-control">
+                             <option selected>Cargos</option>
+                             <option value="gerente" @if(old('cargo') == 'gerente')selected @endif>Gerente</option>
+                             <option value="RH" @if(old('RH') == 'RH')selected @endif>RH</option>
+                             <option value="Auxiliar Administrativo" @if(old('cargo') == 'AuxiliarAdministrativo')selected @endif>Auxiliar Administrativo</option>
+                             <option value="Coordenador Administrativo" @if(old('cargo') == 'CoordenadorAdministrativo')selected @endif>Coordenador Administrativo</option>
+                             <option value="Aprendiz Administrativo" @if(old('cargo') == 'Aprendiz Administrativo')selected @endif>Aprendiz Administrativo</option>
+                             <option value="Estagiario" @if(old('cargo') == 'Estagiario')selected @endif>Estagiário</option>
+                         </select>
+                         <span class="text-danger">{{ $errors->first('cargo') }}</span>
                      </div>
                      <div class="form-group col-md-6 {{ $errors->has('password') ? 'has-error' : '' }}">
                          <label for="password" class="font-weight-bold">Senha</label>
