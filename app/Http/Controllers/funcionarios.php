@@ -10,8 +10,10 @@ use Redirect;
 class funcionarios extends Controller
 {
     public function index(){
-        return view('funcionarios.funcionarios');
+      $funcionarios = funci::get();
+      return view('funcionarios.funcionarios',['funcionarios' => $funcionarios ]);
     }
+
     public function registrar(Request $request){
         $this->validate($request,[
             'nome' => 'required|max:255',
@@ -80,5 +82,6 @@ class funcionarios extends Controller
         \Session::flash('sucesso_funcionario', 'Funcionário Registrado com Sucesso!');
         return back()->withInput();
     }
+
 
 }

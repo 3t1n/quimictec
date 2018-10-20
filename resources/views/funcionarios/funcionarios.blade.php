@@ -232,8 +232,57 @@
     <div class="card">
         <div class="card-header"> Lista de Funcionarios</div>
         <div class="card-body">
+<<<<<<< HEAD
            Fazer a listagem aqui
 
         </div>
+=======
+          <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
+            <table class="table table-bordered text-center ">
+              <thead>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Cargo</th>
+                <th>CPF_CNPJ</th>
+                <th>Telefone</th>
+                <th>Cidade</th>
+                <th>Cep</th>
+                <th>Bairro</th>
+                <th>UF</th>
+                <th>Logradouro</th>
+                <th>Departamento</th>
+                <th>Numero</th>
+                <th>Complemento</th>
+              </thead>
+              <tbody>
+              @foreach ($funcionarios as $func)
+                  <tr>
+                      <td>{{ $func->id }}</td>
+                      <td>{{ $func->nome }}</td>
+                      <td>{{ $func->email }}</td>
+                      <td>{{ $func->cargo }}</td>
+                      <td>{{ $func->cpf_cnpj }}</td>
+                      <td>{{ $func->telefone }}</td>
+                      <td>{{ $func->cidade }}</td>
+                      <td>{{ $func->cep }}</td>
+                      <td>{{ $func->bairro }}</td>
+                      <td>{{ $func->uf }}</td>
+                      <td>{{ $func->logradouro }}</td>
+                      <td>{{ $func->departamento }}</td>
+                      <td>{{ $func->numero }}</td>
+                      <td>{{ $func->complemento }}</td>
+                      <td name="buttons">
+                          <div class="btn-group ">
+                              <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
+                          </div>
+                      </td>
+                  </tr>
+              @endforeach
+              </tbody>
+            </table>
+>>>>>>> 2c32397a0710b693645d21e8c8a636d5dbb41b0a
     </div>
+  </div>
+</div>
 @endsection
