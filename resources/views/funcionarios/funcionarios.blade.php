@@ -147,7 +147,9 @@
                      </div>
                  </div>
 
+
              </form>
+
 
              <script type="text/javascript">
                   //faz o alert sumir
@@ -225,6 +227,13 @@
                   });
               </script>
 
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header"> Lista de Funcionarios</div>
+        <div class="card-body">
+           Fazer a listagem aqui
+            
         </div>
     </div>
 @endsection
