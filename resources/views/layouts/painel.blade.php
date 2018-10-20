@@ -62,6 +62,12 @@
                         <span>funcionarios</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('controle_ponto') }}">
+                        <span><i class="fas fa-users"></i></span>
+                        <span>Controle de Ponto</span>
+                    </a>
+                </li>
 
                 <li href="{{ route('logout') }}"
                     onclick="event.preventDefault();

@@ -233,7 +233,7 @@
         <div class="card-header"> Lista de Funcionarios</div>
         <div class="card-body">
            Fazer a listagem aqui
-            
+
         </div>
     </div>
 @endsection
