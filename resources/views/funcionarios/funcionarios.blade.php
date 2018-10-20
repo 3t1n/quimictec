@@ -106,14 +106,9 @@
                      <input type="number" class="form-control" id="numero" name="numero"  placeholder="Número"  value="{{ old('numero') }}">
                      <span class="text-danger">{{ $errors->first('numero') }}</span>
                  </div>
-                     <div class="form-group col-md-4 ">
+                     <div class="form-group col-md-6 ">
                          <label for="complemento" class="font-weight-bold">Complemento (Opcional)</label>
                          <input type="text" class="form-control" id="complemento" name="complemento" placeholder="*Opcional">
-                     </div>
-
-                     <div class="form-group col-md-2">
-                         <label for="adcionar" class="font-weight-bold" >Adcionar</label>
-                         <button class="btn btn-success form-control">Adcionar</button>
                      </div>
                      <div class="form-group col-md-2">
                          <label for="dp" class="font-weight-bold">Departamento </label>
@@ -145,6 +140,10 @@
                          <label for="password" class="font-weight-bold">Senha</label>
                          <input type="text" class="form-control"  id="password" name="passowrd" placeholder="Digite sua senha" maxlength="18" value="{{ old('password') }}">
                          <span class="text-danger">{{ $errors->first('password') }}</span>
+                     </div>
+                     <div class="form-group col-md-2">
+                         <label for="adcionar" class="font-weight-bold" >Adcionar</label>
+                         <button class="btn btn-success form-control">Adcionar</button>
                      </div>
                  </div>
 
