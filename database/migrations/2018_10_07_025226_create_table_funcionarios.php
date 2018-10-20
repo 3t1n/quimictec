@@ -22,7 +22,7 @@ class CreateTableFuncionarios extends Migration
             $table->string('cpf')->unique();
             $table->string('telefone');
             $table->string('cidade');
-            $table->integer('cep');
+            $table->string('cep');
             $table->string('bairro');
             $table->string('uf');
             $table->string('logradouro');

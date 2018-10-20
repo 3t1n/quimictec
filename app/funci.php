@@ -26,7 +26,7 @@ class funci extends Model
         'uf',
         'logradouro',
         'numero',
-        'complemento',
+        'complemento'
     ];
 
 }
