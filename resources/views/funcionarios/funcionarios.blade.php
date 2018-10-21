@@ -232,11 +232,6 @@
     <div class="card">
         <div class="card-header"> Lista de Funcionarios</div>
         <div class="card-body">
-<<<<<<< HEAD
-           Fazer a listagem aqui
-
-        </div>
-=======
           <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
             <table class="table table-bordered text-center ">
               <thead>
@@ -272,6 +267,7 @@
                       <td>{{ $func->departamento }}</td>
                       <td>{{ $func->numero }}</td>
                       <td>{{ $func->complemento }}</td>
+                      <td><td>
                       <td name="buttons">
                           <div class="btn-group ">
                               <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
@@ -281,7 +277,6 @@
               @endforeach
               </tbody>
             </table>
->>>>>>> 2c32397a0710b693645d21e8c8a636d5dbb41b0a
     </div>
   </div>
 </div>
