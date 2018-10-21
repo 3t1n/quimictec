@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/funcionarios', 'funcionarios@index')->name('funcionarios');
 Route::get('/controle_ponto', 'controle_ponto@index')->name('controle_ponto');
 Route::post('/funcionarios/registrar', 'funcionarios@registrar')->name('regFuncionarios');
+Route::get('/fornecedores', 'fornecedores@index')->name('fornecedores');
+Route::post('/fornecedores/registrar', 'fornecedores@registrar')->name('regFornecedores');

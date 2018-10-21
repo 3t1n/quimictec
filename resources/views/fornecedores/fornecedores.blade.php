@@ -1,15 +1,15 @@
 @extends('layouts.painel')
 @section('content')
     <div class="title">
-        Funcionarios
+        Fornecedores
     </div>
     <div class="card">
-        <div class="card-header">Funcionarios</div>
+        <div class="card-header">Fornecedores</div>
         <div class="card-body">
-            @if (Session::has('sucesso_funcionario'))
-                <div class="alert alert-success" id="success-alert">{{ Session::get('sucesso_funcionario') }} </div>
+            @if (Session::has('sucesso_fornecedores'))
+                <div class="alert alert-success" id="success-alert">{{ Session::get('sucesso_fornecedores') }} </div>
             @endif
-            <form method="POST" action="{{ route('regFuncionarios') }}">
+            <form method="POST" action="{{ route('regFornecedores') }}">
                  @csrf
                  <div class="form-row">
                      <!--  nome e email -->
@@ -111,35 +111,19 @@
                          <input type="text" class="form-control" id="complemento" name="complemento" placeholder="*Opcional">
                      </div>
                      <div class="form-group col-md-2">
-                         <label for="dp" class="font-weight-bold">Departamento </label>
-                         <select id="dp"  name="departamento" class="form-control">
-                             <option selected>Departamento</option>
-                             <option value="Pesquisa e Desenvolvimento" @if(old('dp') == 'PeD')selected @endif>Pesquisa e Desenvolvimento</option>
-                             <option value="Compras" @if(old('dp') == 'Compras')selected @endif>Compras</option>
-                             <option value="Vendas" @if(old('dp') == 'Vendas')selected @endif>Vendas</option>
-                             <option value="Recebimento Fiscal" @if(old('dp') == 'Recebimento Fiscal')selected @endif>Recebimento Fiscal</option>
-                             <option value="Recursos Humanos" @if(old('dp') == 'Recursos Humanos')selected @endif>Recursos Humanos</option>
-                             <option value="Administração" @if(old('dp') == 'Administração')selected @endif>Administração</option>
-                         </select>
-                         <span class="text-danger">{{ $errors->first('dp') }}</span>
+                         <label for="produto" class="font-weight-bold">Produto</label>
+                         <select id="produto"  name="produto" class="form-control">
+                             <option selected>Produto</option>
+                             <option value="Acetona" @if(old('produto') == 'Acetona')selected @endif>Acetona</option>
+                             <option value="Ácido Acético Glacial" @if(old('produto') == 'Ácido Acético Glacial')selected @endif>Ácido Acético Glacial</option>
+                             <option value="Butanol" @if(old('produto') == 'Butanol')selected @endif>Butanol</option>
+                             <option value="Hexano" @if(old('produto') == 'Hexano')selected @endif>Hexano</option>
+                             <option value="Melamina" @if(old('produto') == 'Melamina')selected @endif>Melamina</option>
+                             <option value="Poliol" @if(old('produto') == 'Poliol')selected @endif>Poliol</option>
+                             <option value="Tricloroetileno" @if(old('produto') == 'Tricloroetileno')selected @endif>Tricloroetileno</option>
+                             </select>
+                         <span class="text-danger">{{ $errors->first('produto') }}</span>
                      </div>
-                     <div class="form-group col-md-2">
-                         <label for="cargo" class="font-weight-bold">Cargo </label>
-                         <select id="cargo"  name="cargo" class="form-control">
-                             <option selected>Cargos</option>
-                             <option value="gerente" @if(old('cargo') == 'gerente')selected @endif>Gerente</option>
-                             <option value="RH" @if(old('RH') == 'RH')selected @endif>RH</option>
-                             <option value="Auxiliar Administrativo" @if(old('cargo') == 'AuxiliarAdministrativo')selected @endif>Auxiliar Administrativo</option>
-                             <option value="Coordenador Administrativo" @if(old('cargo') == 'CoordenadorAdministrativo')selected @endif>Coordenador Administrativo</option>
-                             <option value="Aprendiz Administrativo" @if(old('cargo') == 'Aprendiz Administrativo')selected @endif>Aprendiz Administrativo</option>
-                             <option value="Estagiario" @if(old('cargo') == 'Estagiario')selected @endif>Estagiário</option>
-                         </select>
-                         <span class="text-danger">{{ $errors->first('cargo') }}</span>
-                     </div>
-                     <div class="form-group col-md-6 {{ $errors->has('password') ? 'has-error' : '' }}">
-                         <label for="password" class="font-weight-bold">Senha</label>
-                         <input type="text" class="form-control"  id="password" name="passowrd" placeholder="Digite sua senha" maxlength="18" value="{{ old('password') }}">
-                         <span class="text-danger">{{ $errors->first('password') }}</span>
                      </div>
                      <div class="form-group col-md-2">
                          <label for="adicionar" class="font-weight-bold" >Adicionar</label>
@@ -158,7 +142,7 @@
                   });
                   //faz confirm do button delete
                   function checkDelete(){
-                      return confirm('Você tem certeza que quer deletar esse funcionarios?');
+                      return confirm('Você tem certeza que quer deletar esse fornecedor?');
                   }
                   //faz mask nos inputs
                   $("input[id*='cpfcnpj']").inputmask({
@@ -229,56 +213,4 @@
 
         </div>
     </div>
-    <div class="card">
-        <div class="card-header"> Lista de Funcionarios</div>
-        <div class="card-body">
-        </div>
-          <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
-            <table class="table table-bordered text-center ">
-              <thead>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Cargo</th>
-                <th>CPF_CNPJ</th>
-                <th>Telefone</th>
-                <th>Cidade</th>
-                <th>Cep</th>
-                <th>Bairro</th>
-                <th>UF</th>
-                <th>Logradouro</th>
-                <th>Departamento</th>
-                <th>Numero</th>
-                <th>Complemento</th>
-              </thead>
-              <tbody>
-              @foreach ($funcionarios as $func)
-                  <tr>
-                      <td>{{ $func->id }}</td>
-                      <td>{{ $func->nome }}</td>
-                      <td>{{ $func->email }}</td>
-                      <td>{{ $func->cargo }}</td>
-                      <td>{{ $func->cpf_cnpj }}</td>
-                      <td>{{ $func->telefone }}</td>
-                      <td>{{ $func->cidade }}</td>
-                      <td>{{ $func->cep }}</td>
-                      <td>{{ $func->bairro }}</td>
-                      <td>{{ $func->uf }}</td>
-                      <td>{{ $func->logradouro }}</td>
-                      <td>{{ $func->departamento }}</td>
-                      <td>{{ $func->numero }}</td>
-                      <td>{{ $func->complemento }}</td>
-                      <td><td>
-                      <td name="buttons">
-                          <div class="btn-group ">
-                              <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-                          </div>
-                      </td>
-                  </tr>
-              @endforeach
-              </tbody>
-            </table>
-    </div>
-  </div>
-</div>
 @endsection
