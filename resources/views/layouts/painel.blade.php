@@ -68,6 +68,12 @@
                         <span>Controle de Ponto</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('fornecedores') }}">
+                        <span><i class="fas fa-users"></i></span>
+                        <span>Fornecedores</span>
+                    </a>
+                </li>
 
                 <li href="{{ route('logout') }}"
                     onclick="event.preventDefault();
