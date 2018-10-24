@@ -15,6 +15,10 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
     ];
+    protected $routeMiddleware = [
+        'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+        'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
+    ];
 
     /**
      * Define the application's command schedule.
