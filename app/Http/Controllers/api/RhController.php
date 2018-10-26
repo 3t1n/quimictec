@@ -26,6 +26,7 @@ class RhController extends Controller
           'numero' => 'required|numeric',
           'complemento' => 'max:255',
           'cargo'=> 'required|max:255',
+          'salario' => 'required',
           'password' => 'required|min:4',
       ]);
 
@@ -42,11 +43,13 @@ class RhController extends Controller
       $numero = $request->input('numero');
       $complemento = $request->input('complemento');
       $senha = Hash::make($request->input('password'));//já faz a hash bcryp
+      $salario = $request->('salario');
       $cargo = $request->input('cargo');
       $funcionario = new User();
       $funcionario->fill([
           'name' => $nome,
           'password' => $senha,
+          'salario' => $salario,
           'departamento' => $departamento,
           'cargo'=> $cargo,
           'email' => $email,
@@ -68,5 +71,22 @@ class RhController extends Controller
           'cargo' =>  $cargo,
           'msg' => 'Funcionário cadastrado com sucesso!'
       ]);
+    }
+
+    public function editSalario(Request $request) {
+      $this->validate($request,[
+        'nome' => 'required',
+        'salario' => 'required',
+        ]);
+
+      $nome = $request->input('nome');
+      $salario = $request->input('salario');
+
+      $user = new User();
+      $user->update([
+        'name' => $nome,
+        'salario' => $salario,
+      ]);
+      $user->save();
     }
 }
