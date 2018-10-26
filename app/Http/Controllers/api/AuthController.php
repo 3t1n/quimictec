@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
 
 class AuthController extends Controller
@@ -44,10 +45,19 @@ class AuthController extends Controller
     }
     public function refresh()
     {
+      if($token = JWTAuth::getToken()){
+        $new_token = JWTAuth::refresh($token);
+          return response([
+              'status' => 'success',
+              'token' => $new_token
+          ]);
+      }else{
         return response([
-            'status' => 'success'
-        ]);
-    }
+            'status' => 'error',
+            'msg' => 'Falha ao deslogar, tente novamente'
+        ]);}
+      }
+
     public function me()
     {
 

@@ -17,12 +17,13 @@ use Illuminate\Http\Request;
 
 Route::group(['namespace' => 'api\\'], function () {
     Route::post('user/login','AuthController@login');
-    Route::get('user/refresh', 'AuthController@refresh');
+
     Route::get('user/logout', 'AuthController@logout');
 });
 
 Route::middleware('jwt.auth')->group(function(){
 
+    Route::get('token/refresh', 'api\AuthController@refresh');
     Route::get('user/logout', 'api\AuthController@logout');
     Route::get('user/me', 'api\AuthController@me');
 });

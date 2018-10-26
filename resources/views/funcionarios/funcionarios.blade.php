@@ -250,6 +250,7 @@
                 <th>Departamento</th>
                 <th>Numero</th>
                 <th>Complemento</th>
+                <th></th>
               </thead>
               <tbody>
               @foreach ($funcionarios as $func)
@@ -268,7 +269,6 @@
                       <td>{{ $func->departamento }}</td>
                       <td>{{ $func->numero }}</td>
                       <td>{{ $func->complemento }}</td>
-                      <td><td>
                       <td name="buttons">
                           <div class="btn-group ">
                               <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>

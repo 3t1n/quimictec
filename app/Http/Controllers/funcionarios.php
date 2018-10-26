@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\funci;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Redirect;
@@ -10,7 +10,7 @@ use Redirect;
 class funcionarios extends Controller
 {
     public function index(){
-      $funcionarios = funci::get();
+      $funcionarios = User::get();
       return view('funcionarios.funcionarios',['funcionarios' => $funcionarios ]);
     }
 
@@ -18,8 +18,8 @@ class funcionarios extends Controller
         $this->validate($request,[
             'nome' => 'required|max:255',
             'departamento' => 'required|max:255',
-            'email' => 'required|email|unique:funcionarios',
-            'cpf_cnpj' => 'required|min:14|max:18|unique:funcionarios',
+            'email' => 'required|email|unique:user',
+            'cpf_cnpj' => 'required|min:14|max:18|unique:user',
             'telefone' => 'required|min:14|max:15',
             'cep' => 'required|max:9',
             'bairro' => 'required|max:255',
@@ -60,7 +60,7 @@ class funcionarios extends Controller
         $senha = Hash::make($request->input('password'));//já faz a hash bcryp
         $cargo = $request->input('cargo');
 
-        $funcionario = new funci();
+        $funcionario = new User();
         $funcionario->fill([
             'nome' => $nome,
             'senha' => $senha,
