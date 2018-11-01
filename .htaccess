@@ -1,7 +1,0 @@
-<VirtualHost *:80>
-        ServerAdmin seu_email@drall.com.br
-        ServerName <http://quimictec.herokuapp.com/>
-        RedirectMatch .* http://quimictec.herokuapp.com/public>/$1
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
