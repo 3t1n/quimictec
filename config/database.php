@@ -1,10 +1,12 @@
 <?php
 
+
 $url = parse_url(getenv("DATABASE_URL"));
 $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $database = substr($url["path"], 1);
+
 
 return [
 
@@ -51,7 +53,7 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'quimictec'),
             'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', 'xbox360hms'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -74,6 +76,7 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+
           'pgsql_producao' => array(
             'driver'   => 'pgsql',
             'host'     => $host,
