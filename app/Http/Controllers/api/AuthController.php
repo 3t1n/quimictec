@@ -21,9 +21,11 @@ class AuthController extends Controller
                 'msg' => 'Invalid Credentials.'
             ], 400);
         }
+        $user = Auth::user();
         return response([
             'status' => 'success',
-            'token' => $token
+            'token' => $token,
+            'user' => $user
         ]);
     }
     public function register(Request $request){

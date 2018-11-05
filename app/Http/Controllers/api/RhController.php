@@ -43,7 +43,7 @@ class RhController extends Controller
       $numero = $request->input('numero');
       $complemento = $request->input('complemento');
       $senha = Hash::make($request->input('password'));//já faz a hash bcryp
-      $salario = $request->('salario');
+      $salario = $request->input('salario');
       $cargo = $request->input('cargo');
       $funcionario = new User();
       $funcionario->fill([
