@@ -68,4 +68,12 @@ class AuthController extends Controller
         return response()->json(compact('user'));
     }
 
+    public function teste()
+    {
+      return response([
+        'status' => 'Api Funcionando',
+      ]);
+
+    }
+
 }

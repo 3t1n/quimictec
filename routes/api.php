@@ -29,4 +29,5 @@ Route::middleware('jwt.auth')->group(function(){
 
 
       Route::post('rh/recrutamento', 'api\RhController@recrutamento');
+      Route::get('teste', 'api\AuthController@teste');
 });
