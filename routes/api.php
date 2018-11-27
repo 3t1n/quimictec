@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 
 Route::group(['namespace' => 'api\\'], function () {
     Route::post('user/login','AuthController@login');
-    Route::post('ponto','PontoController@ponto');
+
 
 
     Route::get('user/logout', 'AuthController@logout');
@@ -25,6 +25,7 @@ Route::group(['namespace' => 'api\\'], function () {
 
 Route::middleware('jwt.auth')->group(function(){
 
+    Route::post('ponto','api\PontoController@ponto');
     Route::get('token/refresh', 'api\AuthController@refresh');
     Route::get('user/logout', 'api\AuthController@logout');
     Route::get('user/me', 'api\AuthController@me');
