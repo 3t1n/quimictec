@@ -39,7 +39,7 @@ class PontoController extends Controller
           $err = curl_error($ch);  //if you need
           curl_close ($ch);
           $user = Auth::id();
-          $data = Carbon::now('America/Sao_Paulo');
+
           $entrada = DB::table('ponto')->where('data', $data->toDateString())->where('controle','entrada')->where('id_usuario',$user)->first();
           $saida = DB::table('ponto')->where('data', $data->toDateString())->where('controle','saida')->where('id_usuario',$user)->first();
           $hoje = DB::table('ponto')->where('data', $data->toDateString())->where('id_usuario',$user)->get()->count();

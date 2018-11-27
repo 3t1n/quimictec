@@ -69,5 +69,55 @@ class AuthController extends Controller
 
         return response()->json(compact('user'));
     }
+    public function esqueceu_senha(Request $request){
+        $email = $request->input('email');
+        $user = User::where('email',$email)->first();
+        if($user != null){
+            if(!empty($user->email == $email)){
+                $token = md5($email).str_random(16);
+                User::find($user->id)->update(['token' => $token]);
+                return response([
+                    'status' => 'success',
+                    'token' => $token
+                ]);
+            }
+        }else{
+            return response([
+                'status' => 'error',
+                'erro' => 'Usuário não existe'
+            ]);
+        }
+
+    }
+    public function muda_senha(Request $request){
+        $email = $request->input('email');
+        $senha = $request->input('senha');
+        $token = $request->input('token');
+        if(!empty( $email ) AND !empty($senha ) AND !empty($token)){
+            $user = User::where('email',$email)->first();
+            $id = $user->id;
+            $verifica = User::where('token',$token)->where('id', $id )->first();
+            if($verifica != null){
+                if($verifica->token == $token){
+
+                    User::find($id)->update(['password' => bcrypt($senha)]);
+                    return response([
+                        'status' => 'success',
+                        'msg' => 'Senha alterada com sucesso'
+                    ]);
+                }
+            }else{
+                return response([
+                    'status' => 'error',
+                    'erro' => 'token inválido'
+                ]);
+            }
+        }else{
+            return response([
+                'status' => 'error',
+                'erro' => 'faltando informações'
+            ]);
+        }
+    }
 
 }

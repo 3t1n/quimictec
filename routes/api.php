@@ -17,7 +17,8 @@ use Illuminate\Http\Request;
 
 Route::group(['namespace' => 'api\\'], function () {
     Route::post('user/login','AuthController@login');
-
+    Route::post('user/esqueceu','AuthController@esqueceu_senha');
+    Route::post('user/muda_senha','AuthController@muda_senha');
 
 
     Route::get('user/logout', 'AuthController@logout');
