@@ -43,10 +43,7 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Projetos</a>
-                </li>
-                <li class="nav-item">
+                      <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
                 </li>
                 <li class="nav-item">
@@ -108,21 +105,21 @@
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
+                    <i class="far fa-4x fa-lightbulb text-primary mb-3 sr-icon-2"></i>
                     <h3 class="mb-3">Inovação</h3>
                     <p class="text-muted mb-0">Ouvimos os nosso colaboradores e clientes fazendo com que enchergamos os problemas como oportunidades.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
+                    <i class="fas fa-4x fa-expand-arrows-alt text-primary mb-3 sr-icon-3"></i>
                     <h3 class="mb-3">Flexibilidade</h3>
                     <p class="text-muted mb-0">Regras e políticas são importantes, mas estamos cientes de que a flexibilidade é um diferencial para atingirmos o objetivo de cada projeto.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
+                    <i class="fas fa-4x fa-bullseye text-primary mb-3 sr-icon-4"></i>
                     <h3 class="mb-3">Foco no Cliente</h3>
                     <p class="text-muted mb-0">Temos uma equipe composta por profissionais capacitados que trabalham diariamente para ajudar na criação de experiências memoráveis aos nossos clientes.</p>
                 </div>
@@ -131,109 +128,6 @@
     </div>
 </section>
 
-<section class="p-0" id="portfolio">
-    <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-dark text-white">
-    <div class="container text-center">
-        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
-    </div>
-</section>
 
 <section id="contact">
     <div class="container">
