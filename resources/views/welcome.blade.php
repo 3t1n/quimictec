@@ -43,10 +43,7 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Projetos</a>
-                </li>
-                <li class="nav-item">
+                      <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
                 </li>
                 <li class="nav-item">
@@ -67,8 +64,8 @@
                 <hr>
             </div>
             <div class="col-lg-8 mx-auto">
-                <p class="text-faded mb-5">Alguma idéia?</p>
-                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Conheça nossos serviços</a>
+                <p class="text-faded mb-5">Soluções Químicas!</p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Conheça nosso Grupo</a>
             </div>
         </div>
     </div>
@@ -78,10 +75,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="section-heading text-white">We've got what you need!</h2>
+                <h2 class="section-heading text-white">Nós temos o que você precisa!</h2>
                 <hr class="light my-4">
-                <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+                <p class="text-faded mb-4">A QuimicTec tomou a decisão estratégica de tornar-se referência nos mercados da química sustentável.
+                   Com uma visão de longo prazo, o Grupo projeta e desenvolve soluções inovadoras e de alta performance que proporcionam grande rendimento para nossos clientes.</p>
+                <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Nossos serviços</a>
             </div>
         </div>
     </div>
@@ -91,7 +89,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">At Your Service</h2>
+                <h2 class="section-heading">A seu serviço</h2>
                 <hr class="my-4">
             </div>
         </div>
@@ -101,146 +99,43 @@
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
                     <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
-                    <h3 class="mb-3">Sturdy Templates</h3>
-                    <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+                    <h3 class="mb-3">Consolidada no Mercado</h3>
+                    <p class="text-muted mb-0">Nosos serviços são atualizados regularmente para que não tenha nenhuma inconsistência.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
-                    <h3 class="mb-3">Ready to Ship</h3>
-                    <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+                    <i class="far fa-4x fa-lightbulb text-primary mb-3 sr-icon-2"></i>
+                    <h3 class="mb-3">Inovação</h3>
+                    <p class="text-muted mb-0">Ouvimos os nosso colaboradores e clientes fazendo com que enchergamos os problemas como oportunidades.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
-                    <h3 class="mb-3">Up to Date</h3>
-                    <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+                    <i class="fas fa-4x fa-expand-arrows-alt text-primary mb-3 sr-icon-3"></i>
+                    <h3 class="mb-3">Flexibilidade</h3>
+                    <p class="text-muted mb-0">Regras e políticas são importantes, mas estamos cientes de que a flexibilidade é um diferencial para atingirmos o objetivo de cada projeto.</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
-                    <h3 class="mb-3">Made with Love</h3>
-                    <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+                    <i class="fas fa-4x fa-bullseye text-primary mb-3 sr-icon-4"></i>
+                    <h3 class="mb-3">Foco no Cliente</h3>
+                    <p class="text-muted mb-0">Temos uma equipe composta por profissionais capacitados que trabalham diariamente para ajudar na criação de experiências memoráveis aos nossos clientes.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="p-0" id="portfolio">
-    <div class="container-fluid p-0">
-        <div class="row no-gutters popup-gallery">
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-                    <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                Category
-                            </div>
-                            <div class="project-name">
-                                Project Name
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-dark text-white">
-    <div class="container text-center">
-        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
-    </div>
-</section>
 
 <section id="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="section-heading">Let's Get In Touch!</h2>
+                <h2 class="section-heading">A QuimicTec quer ouvir você. Entre em contato!</h2>
                 <hr class="my-4">
-                <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                <p class="mb-5">Pronto para começar seu próximo projeto conosco? Isso é ótimo! Ligue para nós ou envie-nos um e-mail e entraremos em contato o mais breve possível!</p>
             </div>
         </div>
         <div class="row">
