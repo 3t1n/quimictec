@@ -18,8 +18,8 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $fillable = [
         'token',
-        'name', 
-        'email', 
+        'name',
+        'email',
         'password',
         'departamento',
         'cargo',
@@ -32,7 +32,8 @@ class User extends Authenticatable implements JWTSubject
         'uf',
         'logradouro',
         'numero',
-        'complemento'
+        'complemento',
+        'ativo_inativo'
     ];
 
     /**

@@ -270,9 +270,11 @@
                       <td>{{ $func->numero }}</td>
                       <td>{{ $func->complemento }}</td>
                       <td name="buttons">
+                        <form method="get" action="funcionarios/status/{{$func->id}}">
                           <div class="btn-group ">
-                              <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
+                              <button type="submit" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
                           </div>
+                        </form>
                       </td>
                   </tr>
               @endforeach

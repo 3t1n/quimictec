@@ -29,7 +29,7 @@ class funcionarios extends Controller
             'numero' => 'required|numeric',
             'complemento' => 'max:255',
             'cargo'=> 'required|max:255',
-        ],[
+          ],[
             'email.unique' => 'O email já está cadastrado!',
             'cpf_cnpj.unique' => 'O cpf ou cnpj já está cadastrado!',
             'nome.required' => 'O nome é requerido',
@@ -43,7 +43,7 @@ class funcionarios extends Controller
             'logradouro.required' => 'O logradouro é requerido',
             'numero.required' => 'O numero é requerido',
             'cargo.required' => 'O cargo é requerido',
-        ]);
+          ]);
 
         $nome = $request->input('nome');
         $departamento = $request->input('departamento');
@@ -83,5 +83,24 @@ class funcionarios extends Controller
         return back()->withInput();
     }
 
+    public function status($id) {
+    $ativo = User::find($id)->where('ativo_inativo', 'ativo')->first();
+    $inativo = User::find($id)->where('ativo_inativo', 'inativo')->first();
+     if($ativo != null){
+       if($ativo->ativo_inativo == 'ativo') {
+        $ativo->ativo_inativo = 'inativo';
+        $ativo->save();
+
+       }
+     }
+     if($inativo != null){
+       if ($inativo->ativo_inativo == 'inativo') {
+         $inativo->ativo_inativo = 'ativo';
+         $inativo->save();
+     }
+
+    }
+    return redirect()->back()->withInput();
+  }
 
 }

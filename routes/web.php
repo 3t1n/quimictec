@@ -23,3 +23,4 @@ Route::get('/controle_ponto', 'controle_ponto@index')->name('controle_ponto');
 Route::post('/funcionarios/registrar', 'funcionarios@registrar')->name('regFuncionarios');
 Route::get('/fornecedores', 'fornecedores@index')->name('fornecedores');
 Route::post('/fornecedores/registrar', 'fornecedores@registrar')->name('regFornecedores');
+Route::get('/funcionarios/status/{id}', 'funcionarios@status');

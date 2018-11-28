@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('departamento')->nullable();
             $table->string('numero')->nullable();
             $table->string('complemento')->nullable();
+            $table->string('ativo_inativo')->default('ativo');
             $table->rememberToken();
             $table->timestamps();
         });
