@@ -24,3 +24,4 @@ Route::post('/funcionarios/registrar', 'funcionarios@registrar')->name('regFunci
 Route::get('/fornecedores', 'fornecedores@index')->name('fornecedores');
 Route::post('/fornecedores/registrar', 'fornecedores@registrar')->name('regFornecedores');
 Route::get('/funcionarios/status/{id}', 'funcionarios@status');
+Route::get('/estoque', 'estoqueController@index')->name('estoque');

@@ -8,9 +8,6 @@ $password = $url["pass"];
 <<<<<<< HEAD
 $database = substr($url["path"], 1);
 */
-=======
-$database = substr($url["path"], 1);*/
->>>>>>> 2a217b2f47a4e2ad266878161a5055d2dff1aba8
 
 return [
 
@@ -57,7 +54,7 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'quimictec'),
             'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'password' => env('DB_PASSWORD', 'xbox360hms'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
