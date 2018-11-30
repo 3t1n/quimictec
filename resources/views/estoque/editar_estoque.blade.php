@@ -1,7 +1,7 @@
 @extends('layouts.painel')
 @section('content')
     <div class="title">
-        Estoque
+        Editar Estoque
     </div>
     <div class="card">
         <div class="card-header">Estoque</div>
@@ -9,7 +9,7 @@
             @if (Session::has('sucesso_estoque'))
                 <div class="alert alert-success" id="success-alert">{{ Session::get('sucesso_estoque') }} </div>
             @endif
-            <form method="POST" action="{{ route('regEstoque') }}">
+            <form method="POST" action="{{ route('edtEstoque') }}">
                  @csrf
                  <div class="form-row">
                      <!--  nome e email -->
@@ -41,50 +41,5 @@
                  </div>
 
        </form>
-        </div>
-        <div class="title">
-            Estoque
-        </div>
-        <div class="card">
-                <div class="card-header">Estoque</div>
-            <div class="card-body">
-              <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
-                <table class="table table-bordered text-center ">
-                  <thead>
-                    <th>ID</th>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Editar</th>
-                    <th>Apagar</th>
-                    </thead>
-                  <tbody>
-                  @foreach ($estoque as $e)
-                      <tr>
-                          <td>{{ $e->id }}</td>
-                          <td>{{ $e->nome_prod }}</td>
-                          <td>{{ $e->qtd_prod }}</td>
-                          <td>
-                          <form  method="POST" action="/estoque/editar/{{$e->id}}">
-                                            <input type="hidden" name="_method" value="POST">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-                                        </form></td>
-                          <td>
-                                        <!-- GAMB PARA APAGAR -->
-                                        <form  method="POST" action="/estoque/deletar/{{$e->id}}">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button class="btn btn-outline-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
-                                        </form>
-                                        
-                                    </td>
-                          </tr>
-                  @endforeach
-                  </tbody>
-                </table>
-
-            </div>
-        </div>
-    </div>
 
   @endsection
