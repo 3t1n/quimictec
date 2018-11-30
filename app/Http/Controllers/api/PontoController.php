@@ -41,9 +41,9 @@ class PontoController extends Controller
           $user = Auth::id();
 
           $entrada = DB::table('ponto')->where('data', $data->toDateString())->where('controle','entrada')->where('id_usuario',$user)->first();
-          $saida = DB::table('ponto')->where('data', $data->toDateString())->where('controle','saida')->where('id_usuario',$user)->first();
           $hoje = DB::table('ponto')->where('data', $data->toDateString())->where('id_usuario',$user)->get()->count();
-
+          $bd = DB::table('users')->where('id',$user)->first();
+          $nome = $bd->name;
                 if($hoje >= 2){
                     return response([
                          'status' => 'erro_ja_efetuou',
@@ -53,6 +53,7 @@ class PontoController extends Controller
                 else if($entrada){
                       $ponto = new ponto();
                       $ponto->fill([
+                      'nome' =>  $nome,
                       'id_usuario' => $user,
                       'longitude' => $longitude,
                       'latitude' => $latitude,
@@ -67,6 +68,7 @@ class PontoController extends Controller
                     if(!empty($user)){
                       $ponto = new ponto();
                       $ponto->fill([
+                      'nome' =>  $nome,
                       'id_usuario' => $user,
                       'longitude' => $longitude,
                       'latitude' => $latitude,

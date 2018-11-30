@@ -15,6 +15,7 @@ class CreateTablePonto extends Migration
     {
       Schema::create('ponto', function (Blueprint $table) {
           $table->increments('id');
+          $table->string('nome');
           $table->string('latitude');
           $table->string('longitude');
           $table->string('id_usuario');

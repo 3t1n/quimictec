@@ -8,6 +8,7 @@ class ponto extends Model
 {
   protected $table = 'ponto';
   protected $fillable = [
+      'nome',
       'longitude',
       'latitude',
       'id_usuario',

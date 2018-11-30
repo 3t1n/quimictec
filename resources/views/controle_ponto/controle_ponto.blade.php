@@ -23,7 +23,7 @@
                       <td>{{ $p->id }}</td>
                       <td>{{ $p->latitude }}</td>
                       <td>{{ $p->longitude }}</td>
-                      <td>{{ Auth::user()->name }}</td>
+                      <td>{{ $p->nome }}</td>
                       <td>{{ $p->data }}</td>
                       <td>{{ $p->horario }}</td>
                       <td>{{ $p->controle }}</td>
