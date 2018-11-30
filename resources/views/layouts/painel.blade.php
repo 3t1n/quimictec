@@ -56,6 +56,7 @@
                         <span>Home</span>
                     </a>
                 </li>
+                @if(\App\User::find(\Illuminate\Support\Facades\Auth::id())->cargo == "gerente")
                 <li>
                     <a href="{{ route('funcionarios') }}">
                         <span><i class="fas fa-users"></i></span>
@@ -80,6 +81,20 @@
                         <span>Estoque</span>
                     </a>
                 </li>
+                @elseif(\App\User::find(\Illuminate\Support\Facades\Auth::id())->cargo == "rh")
+                <li>
+                    <a href="{{ route('funcionarios') }}">
+                        <span><i class="fas fa-users"></i></span>
+                        <span>Funcionarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('controle_ponto') }}">
+                        <span><i class="far fa-clock"></i></span>
+                        <span>Controle de Ponto</span>
+                    </a>
+                </li>
+                @endif
 
                 <li href="{{ route('logout') }}"
                     onclick="event.preventDefault();
