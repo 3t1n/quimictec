@@ -103,4 +103,10 @@ class funcionarios extends Controller
     return redirect()->back()->withInput();
   }
 
+  public function deletar($id){
+    $funcionario = User::findOrFail($id);
+    $funcionario->delete();
+    return back()->withInput();
+}
+
 }

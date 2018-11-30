@@ -22,6 +22,8 @@ Route::get('/funcionarios', 'funcionarios@index')->name('funcionarios');
 Route::get('/controle_ponto', 'controle_ponto@index')->name('controle_ponto');
 Route::post('/funcionarios/registrar', 'funcionarios@registrar')->name('regFuncionarios');
 Route::get('/fornecedores', 'fornecedores@index')->name('fornecedores');
+Route::delete('/funcionarios/deletar/{id}', 'fornecedores@deletar')->name('delFuncionarios');
+
 Route::post('/fornecedores/registrar', 'fornecedores@registrar')->name('regFornecedores');
 Route::get('/funcionarios/status/{id}', 'funcionarios@status');
 Route::get('/estoque', 'estoqueController@index')->name('estoque');

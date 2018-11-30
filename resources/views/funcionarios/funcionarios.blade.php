@@ -250,7 +250,7 @@
                 <th>Departamento</th>
                 <th>Numero</th>
                 <th>Complemento</th>
-                <th></th>
+                <th>Apagar</th>
               </thead>
               <tbody>
               @foreach ($funcionarios as $func)
@@ -269,13 +269,17 @@
                       <td>{{ $func->departamento }}</td>
                       <td>{{ $func->numero }}</td>
                       <td>{{ $func->complemento }}</td>
-                      <td name="buttons">
-                        <form method="get" action="funcionarios/status/{{$func->id}}">
-                          <div class="btn-group ">
-                              <button type="submit" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-                          </div>
-                        </form>
-                      </td>
+                      <td>
+
+                                        <!-- GAMB PARA APAGAR -->
+                                        <form  method="POST" action="/funcionarios/deletar/{{$func->id}}">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button class="btn btn-outline-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                        
+                                    </td>
+                          </tr>
                   </tr>
               @endforeach
               </tbody>
