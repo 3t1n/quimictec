@@ -65,7 +65,7 @@
                           <td>{{ $e->qtd_prod }}</td>
                           <td>
                           <form  method="POST" action="/estoque/editar/{{$e->id}}">
-                                            <input type="hidden" name="_method" value="POST">
+                                            <input type="hidden" name="_method" value="get">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
                                         </form></td>

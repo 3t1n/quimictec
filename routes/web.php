@@ -26,5 +26,5 @@ Route::post('/fornecedores/registrar', 'fornecedores@registrar')->name('regForne
 Route::get('/funcionarios/status/{id}', 'funcionarios@status');
 Route::get('/estoque', 'estoqueController@index')->name('estoque');
 Route::post('/estoque/registrar', 'estoqueController@registrar')->name('regEstoque');
-Route::post('/estoque/editar/{id}', 'estoqueController@editar')->name('edtEstoque');
+Route::get('/estoque/editar/{id}', 'estoqueController@editar')->name('edtEstoque');
 Route::delete('/estoque/deletar/{id}', 'estoqueController@deletar')->name('delEstoque');
