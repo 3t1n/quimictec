@@ -13,8 +13,8 @@ class PontoController extends Controller
 {
     public function ponto(Request $request){
 
-    	$latitude = $request->input("latitude");
-    	$longitude = $request->input("longitude");
+      $latitude = $request->input("latitude");
+      $longitude = $request->input("longitude");
       $data = Carbon::now('America/Sao_Paulo');
 
       $hora =   $data->format('H:i');
@@ -23,7 +23,7 @@ class PontoController extends Controller
 
     	if(empty($latitude) or empty($longitude)){
     		return response([
-            'status' => 'error',
+            'status' => 'error_inserir',
             'erro' => 'Insira latitude e longitude'
         	]);
     	}
@@ -46,7 +46,7 @@ class PontoController extends Controller
 
                 if($hoje >= 2){
                     return response([
-                         'status' => 'erro',
+                         'status' => 'erro_ja_efetuou',
                          'erro' => 'Você já efetuou sua entrada e saída hoje'
                      ]);
                 }
@@ -86,7 +86,7 @@ class PontoController extends Controller
       }
       else{
         return response([
-          'status' => 'error',
+          'status' => 'error_fora_trabalho',
           'erro' => 'Você está fora da área de trabalho']);
       }
     }
