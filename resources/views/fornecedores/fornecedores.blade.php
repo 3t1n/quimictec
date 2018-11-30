@@ -212,5 +212,58 @@
               </script>
 
         </div>
+        <div class="card">
+            <div class="card-header"> Lista de Fornecedores</div>
+            <div class="card-body">
+            </div>
+              <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
+                <table class="table table-bordered text-center ">
+                  <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>CPF_CNPJ</th>
+                    <th>Telefone</th>
+                    <th>Cidade</th>
+                    <th>Cep</th>
+                    <th>Bairro</th>
+                    <th>UF</th>
+                    <th>Logradouro</th>
+                    <th>Numero</th>
+                    <th>Complemento</th>
+                    <th>Produto</th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                  @foreach ($fornecedores as $f)
+                      <tr>
+                          <td>{{ $f->id }}</td>
+                          <td>{{ $f->nome }}</td>
+                          <td>{{ $f->email }}</td>
+                          <td>{{ $f->cpf_cnpj }}</td>
+                          <td>{{ $f->telefone }}</td>
+                          <td>{{ $f->cidade }}</td>
+                          <td>{{ $f->cep }}</td>
+                          <td>{{ $f->bairro }}</td>
+                          <td>{{ $f->uf }}</td>
+                          <td>{{ $f->logradouro }}</td>
+                          <td>{{ $f->numero }}</td>
+                          <td>{{ $f->complemento }}</td>
+                          <td>{{ $f->produto }}</td>
+                          <td name="buttons">
+                            <form method="get">
+                              <div class="btn-group ">
+                                  <button type="submit" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
+                              </div>
+                            </form>
+                          </td>
+                      </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+        </div>
+      </div>
     </div>
-@endsection
+
+  </div>
+  @endsection

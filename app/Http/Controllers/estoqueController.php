@@ -15,15 +15,15 @@ class estoqueController extends Controller
 
     public function registrar(Request $request){
         $this->validate($request,[
-            'nome_prod' => 'required|max:255',
-            'qtd_prod' => 'required',
+            'quantidade' => 'required|max:255',
+            'produto' => 'required',
           ],[
-            'nome.required' => 'O nome é requerido',
-            'qtd_prod.required' => 'A quantidade é requerida',
+            'produto.required' => 'O produto é requerido',
+            'quantidade.required' => 'A quantidade é requerida',
             ]);
 
-        $nome_prod = $request->input('nome_prod');
-        $qtd_prod = $request->input('qtd_prod');
+        $nome_prod = $request->input('produto');
+        $qtd_prod = $request->input('quantidade');
 
         $estoque = new estoque();
         $estoque->fill([
