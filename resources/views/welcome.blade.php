@@ -64,7 +64,7 @@
                 <hr>
             </div>
             <div class="col-lg-8 mx-auto">
-                <p class="text-faded mb-5">Soluções Químicas!</p>
+                <p class="text-faded mb-5">Soluções Químicas</p>
                 <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Conheça nosso Grupo</a>
             </div>
         </div>
@@ -141,7 +141,7 @@
         <div class="row">
             <div class="col-lg-4 ml-auto text-center">
                 <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-                <p>11-2655-4588</p>
+                <p>(11) 2655-4588</p>
             </div>
             <div class="col-lg-4 mr-auto text-center">
                 <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
