@@ -59,12 +59,12 @@
                 <li>
                     <a href="{{ route('funcionarios') }}">
                         <span><i class="fas fa-users"></i></span>
-                        <span>funcionarios</span>
+                        <span>Funcionarios</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('controle_ponto') }}">
-                        <span><i class="fas fa-users"></i></span>
+                        <span><i class="far fa-clock"></i></span>
                         <span>Controle de Ponto</span>
                     </a>
                 </li>
@@ -72,6 +72,12 @@
                     <a href="{{ route('fornecedores') }}">
                         <span><i class="fas fa-users"></i></span>
                         <span>Fornecedores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('estoque') }}">
+                        <span><i class="fas fa-box-open"></i></span>
+                        <span>Estoque</span>
                     </a>
                 </li>
 

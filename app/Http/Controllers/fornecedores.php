@@ -10,11 +10,11 @@ class fornecedores extends Controller
 {
   public function index(){
     $fornecedores = fornecedor::get();
-    return view('fornecedores.fornecedores',['fornecedores' => $fornecedores ]);
+    return view('fornecedores.fornecedores',['fornecedores' => $fornecedores]);
   }
 
   public function registrar(Request $request){
-  /*  $this->validate($request,[
+    $this->validate($request,[
           'nome' => 'required|max:255',
           'email' => 'required|email|unique:fornecedores',
           'cpf_cnpj' => 'required|min:14|max:18|unique:fornecedores',
@@ -42,7 +42,7 @@ class fornecedores extends Controller
           'numero.required' => 'O numero é requerido',
           'produto.requered' => 'O produto é requerido',
       ]);
-*/
+
       $nome = $request->input('nome');
       $email = $request->input('email');
       $cpf_cnpj = $request->input('cpf_cnpj');

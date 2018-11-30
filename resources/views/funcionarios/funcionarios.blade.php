@@ -256,7 +256,7 @@
               @foreach ($funcionarios as $func)
                   <tr>
                       <td>{{ $func->id }}</td>
-                      <td>{{ $func->nome }}</td>
+                      <td>{{ $func->name }}</td>
                       <td>{{ $func->email }}</td>
                       <td>{{ $func->cargo }}</td>
                       <td>{{ $func->cpf_cnpj }}</td>

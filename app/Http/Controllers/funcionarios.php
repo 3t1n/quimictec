@@ -18,8 +18,8 @@ class funcionarios extends Controller
         $this->validate($request,[
             'nome' => 'required|max:255',
             'departamento' => 'required|max:255',
-            'email' => 'required|email|unique:user',
-            'cpf_cnpj' => 'required|min:14|max:18|unique:user',
+            'email' => 'required|email|unique:users',
+            'cpf_cnpj' => 'required|min:14|max:18|unique:users',
             'telefone' => 'required|min:14|max:15',
             'cep' => 'required|max:9',
             'bairro' => 'required|max:255',
@@ -57,13 +57,13 @@ class funcionarios extends Controller
         $logradouro = $request->input('logradouro');
         $numero = $request->input('numero');
         $complemento = $request->input('complemento');
-        $senha = Hash::make($request->input('password'));//já faz a hash bcryp
+        $senha = Hash::make($request->input('passowrd'));//já faz a hash bcryp
         $cargo = $request->input('cargo');
 
         $funcionario = new User();
         $funcionario->fill([
-            'nome' => $nome,
-            'senha' => $senha,
+            'name' => $nome,
+            'password' => $senha,
             'departamento' => $departamento,
             'cargo'=> $cargo,
             'email' => $email,
