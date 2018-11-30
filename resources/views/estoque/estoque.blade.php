@@ -54,7 +54,6 @@
                     <th>ID</th>
                     <th>Produto</th>
                     <th>Quantidade</th>
-                    <th>Editar</th>
                     <th>Apagar</th>
                     </thead>
                   <tbody>
@@ -64,12 +63,7 @@
                           <td>{{ $e->nome_prod }}</td>
                           <td>{{ $e->qtd_prod }}</td>
                           <td>
-                          <form  method="POST" action="/estoque/editar/{{$e->id}}">
-                                            <input type="hidden" name="_method" value="get">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
-                                        </form></td>
-                          <td>
+
                                         <!-- GAMB PARA APAGAR -->
                                         <form  method="POST" action="/estoque/deletar/{{$e->id}}">
                                             <input type="hidden" name="_method" value="DELETE">

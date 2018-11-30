@@ -41,22 +41,6 @@ class estoqueController extends Controller
         \Session::flash('sucesso_estoque', 'Produto deletado com sucesso!');
         return back()->withInput();
     }
-    public function editar(Request $request, $id){
-        $this->validate($request,[
-            'quantidade' => 'required|max:255',
-            'produto' => 'required',
-          ],[
-            'produto.required' => 'O produto é requerido',
-            'quantidade.required' => 'A quantidade é requerida',
-            ]);
-            $estoque = estoque::findOrFail($id);
-            $estoque->update([
-                'nome_prod' => $nome_prod,
-                'qtd_prod' => $qtd_prod,
-            ]);
-            $estoque->save();
-            \Session::flash('sucesso_estoque', 'Produto Editado com Sucesso no Estoque!');
-            return back()->withInput();
-    }
+    
 
 }
