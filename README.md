@@ -1,0 +1,2 @@
+# quimictec
+Projeto do semestre
