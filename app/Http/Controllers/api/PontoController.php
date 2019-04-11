@@ -27,8 +27,8 @@ class PontoController extends Controller
             'erro' => 'Insira latitude e longitude'
         	]);
     	}
-      $valida_long = (-23.52000>=$latitude)&&($latitude>=-23.52999);
-      $valida_lat = (-46.66000>=$longitude)&&($longitude>=-48.66999);
+      $valida_long = (-23.52000>=$latitude)&&($latitude>=-23.54999);
+      $valida_lat = (-46.00000>=$longitude)&&($longitude>=-49.66999);
       if($valida_long  &&  $valida_lat  ){
           $endpoint = "https://us1.locationiq.com/v1/reverse.php?key=43706011dbee3d&lat=".$latitude."&lon=".$longitude."&format=json";
           $ch = curl_init();
