@@ -11,9 +11,11 @@ class funcionarios extends Controller
 {
     public function index(){
       $funcionarios = User::get();
+        //mostra a pagina de Funcionarios
       return view('funcionarios.funcionarios',['funcionarios' => $funcionarios ]);
     }
-
+    
+        //Função pata Registrar um Funcionario novo
     public function registrar(Request $request){
         $this->validate($request,[
             'nome' => 'required|max:255',
@@ -78,11 +80,13 @@ class funcionarios extends Controller
             'complemento' => $complemento,
         ]);
         $funcionario->save();
-
+        
+          //Retorna uma mensagem para o usúario dizendo que o funcionario foi registrado
         \Session::flash('sucesso_funcionario', 'Funcionário Registrado com Sucesso!');
         return back()->withInput();
     }
 
+    //Função que demonstra se o Funcionario está ativo ou não
     public function status($id) {
     $ativo = User::find($id)->where('ativo_inativo', 'ativo')->first();
     $inativo = User::find($id)->where('ativo_inativo', 'inativo')->first();
@@ -103,6 +107,7 @@ class funcionarios extends Controller
     return redirect()->back()->withInput();
   }
 
+    // Função de que deleta o funcionario
   public function deletar($id){
     $funcionario = User::findOrFail($id);
     $funcionario->delete();
