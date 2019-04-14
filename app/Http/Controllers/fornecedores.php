@@ -10,9 +10,11 @@ class fornecedores extends Controller
 {
   public function index(){
     $fornecedores = fornecedor::get();
+      //mostra a pagina de fornecedores
     return view('fornecedores.fornecedores',['fornecedores' => $fornecedores]);
   }
 
+    //Função que Registra um novo Fornecedor
   public function registrar(Request $request){
     $this->validate($request,[
           'nome' => 'required|max:255',
@@ -72,7 +74,7 @@ class fornecedores extends Controller
           'produto' => $produto,
       ]);
       $fornecedores->save();
-
+        //Retorna uma mensagem para o usúario dizendo que o fornecedor foi registrado
       \Session::flash('sucesso_fornecedores', 'Fornecedor Registrado com Sucesso!');
       return back()->withInput();
     }
