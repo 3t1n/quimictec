@@ -10,7 +10,7 @@ class estoqueController extends Controller
 {
     public function index(){
       $estoque = estoque::get();
-        ////mostra a pagina de estoque
+        //mostra a pagina de estoque
       return view('estoque.estoque',['estoque' => $estoque ]);
     }
 
