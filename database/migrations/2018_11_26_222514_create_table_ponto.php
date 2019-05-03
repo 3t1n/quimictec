@@ -18,12 +18,15 @@ class CreateTablePonto extends Migration
           $table->string('nome');
           $table->string('latitude');
           $table->string('longitude');
-          $table->string('id_usuario');
+          $table->integer('usuario_id')->unsigned();
           $table->date('data');
           $table->string('horario');
           $table->string('controle');
           $table->timestamps();
       });
+        Schema::table('ponto', function($table) {
+            $table->foreign('usuario_id')->references('id')->on('users');
+        });
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\api;
 
+use App\catraca;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -40,8 +42,8 @@ class PontoController extends Controller
           curl_close ($ch);
           $user = Auth::id();
 
-          $entrada = DB::table('ponto')->where('data', $data->toDateString())->where('controle','entrada')->where('id_usuario',$user)->first();
-          $hoje = DB::table('ponto')->where('data', $data->toDateString())->where('id_usuario',$user)->get()->count();
+          $entrada = DB::table('ponto')->where('data', $data->toDateString())->where('controle','entrada')->where('usuario_id',$user)->first();
+          $hoje = DB::table('ponto')->where('data', $data->toDateString())->where('usuario_id',$user)->get()->count();
           $bd = DB::table('users')->where('id',$user)->first();
           $nome = $bd->name;
                 if($hoje >= 2){
@@ -54,7 +56,7 @@ class PontoController extends Controller
                       $ponto = new ponto();
                       $ponto->fill([
                       'nome' =>  $nome,
-                      'id_usuario' => $user,
+                      'usuario_id' => $user,
                       'longitude' => $longitude,
                       'latitude' => $latitude,
                       'data' => $data,
@@ -69,7 +71,7 @@ class PontoController extends Controller
                       $ponto = new ponto();
                       $ponto->fill([
                       'nome' =>  $nome,
-                      'id_usuario' => $user,
+                      'usuario_id' => $user,
                       'longitude' => $longitude,
                       'latitude' => $latitude,
                       'data' => $data,
@@ -91,5 +93,50 @@ class PontoController extends Controller
           'status' => 'error_fora_trabalho',
           'erro' => 'Você está fora da área de trabalho']);
       }
+    }
+    public function gravar(Request $request){
+        //dar um select e colocar o id na api
+    }
+    public function ler($id){
+        //se o usuário existir
+        $data = Carbon::now('America/Sao_Paulo');
+        $hora = $data->format('H:i');
+        $controle =DB::table('catraca')->where('usuario_id',$id)->where('data', $data->toDateString())->orderBy('created_at', 'desc')->first();
+        if(User::find($id)){
+            if($controle){
+                if($controle->controle == "entrada"){
+                    $catraca = new catraca();
+                    $catraca->fill([
+                        'usuario_id' => $id,
+                        'data' => $data,
+                        'horario' => $hora,
+                        'controle' => 'saida'
+                    ]);
+                    $catraca->save();
+                }else{
+                    $catraca = new catraca();
+                    $catraca->fill([
+                        'usuario_id' => $id,
+                        'data' => $data,
+                        'horario' => $hora,
+                        'controle' => 'entrada'
+                    ]);
+                    $catraca->save();
+                }
+            }else{
+                $catraca = new catraca();
+                $catraca->fill([
+                    'usuario_id' => $id,
+                    'data' => $data,
+                    'horario' => $hora,
+                    'controle' => 'entrada'
+                ]);
+                $catraca->save();
+            }
+            return "sucesso";
+        }
+        else{
+            return "falha";
+        }
     }
 }

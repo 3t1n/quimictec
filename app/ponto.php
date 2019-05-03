@@ -11,7 +11,7 @@ class ponto extends Model
       'nome',
       'longitude',
       'latitude',
-      'id_usuario',
+      'usuario_id',
       'data',
       'horario',
       'controle',

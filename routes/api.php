@@ -23,11 +23,7 @@ Route::group(['namespace' => 'api\\'], function () {
         $teste = "Teste API";
         return $teste;
     });
-    Route::post('dado/{id}',function($id){
-        return $id;
-    }
-
-
+    Route::get('catraca/{id}','PontoController@ler');
     Route::get('user/logout', 'AuthController@logout');
 });
 
