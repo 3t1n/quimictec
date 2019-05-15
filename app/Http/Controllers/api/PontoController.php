@@ -103,7 +103,7 @@ class PontoController extends Controller
             return "sucesso";
         }
         else{
-            return "falha";
+            return "falhou";
         }
     }
     public function registra($id){
