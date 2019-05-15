@@ -99,6 +99,14 @@ class PontoController extends Controller
     }
     public function ler($id){
         //se o usuário existir
+        if(User::find($id)){
+            return "sucesso";
+        }
+        else{
+            return "falha";
+        }
+    }
+    public function registra($id){
         $data = Carbon::now('America/Sao_Paulo');
         $hora = $data->format('H:i');
         $controle =DB::table('catraca')->where('usuario_id',$id)->where('data', $data->toDateString())->orderBy('created_at', 'desc')->first();

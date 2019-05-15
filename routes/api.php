@@ -24,6 +24,7 @@ Route::group(['namespace' => 'api\\'], function () {
         return $teste;
     });
     Route::get('catraca/{id}','PontoController@ler');
+    Route::get('catraca/registra/{id}','PontoController@registra');
     Route::get('user/logout', 'AuthController@logout');
 });
 
