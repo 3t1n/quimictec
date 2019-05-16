@@ -100,10 +100,10 @@ class PontoController extends Controller
     public function ler($id){
         //se o usuário existir
         if(User::find($id)){
-            return "bom <br> sucesso";
+            return "sucesso";
         }
         else{
-            return "bom <br> falhaaa";
+            return "falha";
         }
     }
     public function registra($id){
