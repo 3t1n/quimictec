@@ -138,7 +138,7 @@
                      </div>
                      <div class="form-group col-md-6 {{ $errors->has('password') ? 'has-error' : '' }}">
                          <label for="password" class="font-weight-bold">Senha</label>
-                         <input type="text" class="form-control"  id="password" name="passowrd" placeholder="Digite sua senha" maxlength="18" value="{{ old('password') }}">
+                         <input type="password" class="form-control"  id="password" name="passowrd" placeholder="Digite sua senha" maxlength="18" value="{{ old('password') }}">
                          <span class="text-danger">{{ $errors->first('password') }}</span>
                      </div>
                      <div class="form-group col-md-2">

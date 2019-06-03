@@ -69,6 +69,18 @@
                         <span>Controle de Ponto</span>
                     </a>
                 </li>
+                    <li>
+                        <a href="{{ route('home_office') }}">
+                            <span><i class="fas fa-users"></i></span>
+                            <span>Home Office</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('atividades_externas') }}">
+                            <span><i class="fas fa-users"></i></span>
+                            <span>Atividade Externa</span>
+                        </a>
+                    </li>
                 <li>
                     <a href="{{ route('fornecedores') }}">
                         <span><i class="fas fa-users"></i></span>
