@@ -10,14 +10,12 @@
         <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
             <table class="table table-bordered text-center ">
                 <thead>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Adicionar</th>
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>
                             <a href="/home_office/status/{{ $user->id }}"><button class="btn btn-success" type="submit"><i class="fas fa-plus"></i></button></a>
@@ -29,11 +27,10 @@
             </table>
         </div>
     </div>
-    <div class="card"><div class="card-header">Home Office</div>
+    <div class="card"><div class="card-header">Funcionários que estão em Home Office</div>
         <div class="table-responsive " style="table-layout:fixed ;width:100%;  white-space: nowrap;">
             <table class="table table-bordered text-center ">
                 <thead>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Data</th>
                 <th>Deletar</th>
@@ -41,16 +38,21 @@
                 <tbody>
                 @foreach ($lista as $list)
                     <tr>
-                        <td>{{ $list->id }}</td>
                         <td>{{ $list->name }}</td>
                         <td>{{ $list->data }}</td>
+                        @if($list->data == $data)
                         <td>
                             <form  method="POST" action="/home_office/delete/{{$list->id}}">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button class="btn btn-outline-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
+                        @else
+                            <td>
+                                    <button class="btn btn-primmary" type="submit" disabled><i class="fas fa-times-circle"></i></button>
+                            </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
