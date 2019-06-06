@@ -22,6 +22,7 @@ class CreateTablePonto extends Migration
           $table->date('data');
           $table->string('horario');
           $table->string('controle');
+          $table->string('forma');
           $table->timestamps();
       });
         Schema::table('ponto', function($table) {

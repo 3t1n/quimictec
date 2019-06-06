@@ -32,8 +32,14 @@ class CreateUsersTable extends Migration
             $table->string('numero')->nullable();
             $table->string('complemento')->nullable();
             $table->string('ativo_inativo')->default('ativo');
+            $table->integer('role_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();
+        });
+        Schema::table('users', function($table) {
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('role');
         });
     }
 

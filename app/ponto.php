@@ -8,12 +8,13 @@ class ponto extends Model
 {
   protected $table = 'ponto';
   protected $fillable = [
-      'nome',
-      'longitude',
-      'latitude',
-      'usuario_id',
-      'data',
-      'horario',
-      'controle',
-  ];
+    'nome',
+    'longitude',
+    'latitude',
+    'usuario_id',
+    'data',
+    'horario',
+    'controle',
+    'forma'
+];
 }

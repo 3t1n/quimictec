@@ -16,121 +16,109 @@ use Illuminate\Support\Facades\DB;
 class PontoController extends Controller
 {
     private $data;
-    private $user;
 
     public function __construct()
     {
          $this->data = Carbon::now('America/Sao_Paulo');
-         $this->user = Auth::id();
     }
-
-    public function ponto2(Request $request){
-
-      $latitude = $request->input("latitude");
-      $longitude = $request->input("longitude");
-      $data = Carbon::now('America/Sao_Paulo');
-      $user = Auth::id();
-      $home_office =  DB::table('homeoffice')
-          ->where('id_usuario',$user)
-          ->where('data', $data->toDateString())->first();
-      $bd = DB::table('users')->where('id',$user)->first();
-      $nome = $bd->name;
-      $hora =   $data->format('H:i');
-    	//-23.5264093
-    	//-46.6664467
-        if($home_office->isNotEmpty()){
-            if(!empty($user)){
-                $ponto = new ponto();
-                $ponto->fill([
-                    'nome' =>  $nome,
-                    'usuario_id' => $user,
-                    'longitude' => $longitude,
-                    'latitude' => $latitude,
-                    'data' => $data,
-                    'horario' => $hora,
-                    'controle' => 'entrada'
-                ]);
-                $ponto->save();
-            }
-        }
-    	if(empty($latitude) or empty($longitude)){
-    		return response([
-            'status' => 'error_inserir',
-            'erro' => 'Insira latitude e longitude'
-        	]);
-    	}
-          $valida_long = (-23.52000>=$latitude)&&($latitude>=-23.54999);
-          $valida_lat = (-46.00000>=$longitude)&&($longitude>=-49.66999);
-          if($valida_long  &&  $valida_lat  ){
-              $endpoint = "https://us1.locationiq.com/v1/reverse.php?key=43706011dbee3d&lat=".$latitude."&lon=".$longitude."&format=json";
-              $ch = curl_init();
-              curl_setopt($ch, CURLOPT_URL, $endpoint);
-              curl_setopt($ch, CURLOPT_POST, 0);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-              $response = curl_exec($ch);
-              $err = curl_error($ch);  //if you need
-              curl_close ($ch);
-
-
-              $entrada = DB::table('ponto')->where('data', $data->toDateString())->where('controle','entrada')->where('usuario_id',$user)->first();
-              $hoje = DB::table('ponto')->where('data', $data->toDateString())->where('usuario_id',$user)->get()->count();
-                    if($hoje >= 2){
-                        return response([
-                             'status' => 'erro_ja_efetuou',
-                             'erro' => 'Você já efetuou sua entrada e saída hoje'
-                         ]);
-                    }
-                    else if($entrada){
-                          $ponto = new ponto();
-                          $ponto->fill([
-                          'nome' =>  $nome,
-                          'usuario_id' => $user,
-                          'longitude' => $longitude,
-                          'latitude' => $latitude,
-                          'data' => $data,
-                          'horario' => $hora,
-                          'controle' => 'saida'
-                          ]);
-                          $ponto->save();
-                      }
-                      else{
-
-                        if(!empty($user)){
-                          $ponto = new ponto();
-                          $ponto->fill([
-                          'nome' =>  $nome,
-                          'usuario_id' => $user,
-                          'longitude' => $longitude,
-                          'latitude' => $latitude,
-                          'data' => $data,
-                          'horario' => $hora,
-                          'controle' => 'entrada'
-                          ]);
-                          $ponto->save();
-                        }
-                      }
-               return response([
-                    'status' => 'success',
-                    'json' => json_decode($response)
-
-                ]);
-
-          }
-          else{
-            return response([
-              'status' => 'error_fora_trabalho',
-              'erro' => 'Você está fora da área de trabalho']);
-          }
+    private function user(){
+        $user = Auth::id();
+        return $user;
     }
     public function ponto(Request $request){
-        $data = Carbon::now('America/Sao_Paulo');
         $latitude = $request->input("latitude");
         $longitude = $request->input("longitude");
 
+        //se o user estiver em home office
+        if($this->home_office()){
+            $this->bate_ponto("null","null","home office");
+                return response([
+                    'status' => 'success',
+                    'json' => "home office"
+                ]);
+        }else{
+            //verifica se ele passou a catraca
+            if($this->catraca()){
+                //verifica a geolocalizacao
+                if($this->geolocalizacao($latitude,$longitude)){
+                    if($this->bate_ponto($latitude,$longitude,"normal")){
+                        $endpoint = "https://us1.locationiq.com/v1/reverse.php?key=43706011dbee3d&lat=".$latitude."&lon=".$longitude."&format=json";
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, $endpoint);
+                        curl_setopt($ch, CURLOPT_POST, 0);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response = curl_exec($ch);
+                        curl_close ($ch);
+                        return response([
+                            'status' => 'success',
+                            'json' => json_decode($response)
+
+                        ]);
+                    }else{
+                        return response([
+                            'status' => 'erro_ja_efetuou',
+                            'erro' => 'Você já efetuou sua entrada e saída hoje'
+                        ]);
+                    }
+                }else{
+                    return response([
+                        'status' => 'error_fora_trabalho',
+                        'erro' => 'Você está fora da área de trabalho']);
+                }
+            }else{
+                return response([
+                    'status' => 'error_fora_trabalho',
+                    'erro' => 'Não passou entrou na empresa e passou a catraca!']);
+            }
+
+        }
+    }
+    private function bate_ponto($latitude,$longitude,$forma){
+        $bd = DB::table('users')->where('id',$this->user() )->first();
+        $nome = $bd->name;
+        $hora =   $this->data->format('H:i');
+        $entrada = DB::table('ponto')->where('data', $this->data->toDateString())->where('controle','entrada')->where('usuario_id',$this->user())->first();
+        $hoje = DB::table('ponto')->where('data', $this->data->toDateString())->where('usuario_id',$this->user())->get()->count();
+        if($hoje >= 2){
+            return false;
+        }
+        else if($entrada){
+            $ponto = new ponto();
+            $ponto->fill([
+                'nome' =>  $nome,
+                'usuario_id' => $this->user(),
+                'longitude' => $longitude,
+                'latitude' => $latitude,
+                'data' => $this->data,
+                'horario' => $hora,
+                'controle' => 'saida',
+                'forma' => $forma
+            ]);
+            $ponto->save();
+            return true;
+        }
+        else{
+            if(!empty($this->user())){
+                $ponto = new ponto();
+                $ponto->fill([
+                    'nome' =>  $nome,
+                    'usuario_id' => $this->user(),
+                    'longitude' => $longitude,
+                    'latitude' => $latitude,
+                    'data' => $this->data,
+                    'horario' => $hora,
+                    'controle' => 'entrada',
+                    'forma' => $forma
+                ]);
+                $ponto->save();
+            }
+            return true;
+        }
     }
     private function home_office(){
+
         $homeoffice =  DB::table('homeoffice')
-            ->where('id_usuario',$this->user)
+            ->where('usuario_id',$this->user())
             ->where('data', $this->data->toDateString())->first();
         if($homeoffice){
             return true;
@@ -140,12 +128,11 @@ class PontoController extends Controller
         }
     }
     private function catraca(){
-        $controle = DB::table('catraca')->where('usuario_id',$this->user)
+        $controle = DB::table('catraca')->where('usuario_id',$this->user())
             ->where('data', $this->data->toDateString())
-            ->where('controle', 'entrada')
             ->orderBy('created_at', 'desc')
             ->first();
-        if($controle){
+        if($controle->controle == "entrada"){
             return true;
         }
         else{
@@ -153,77 +140,16 @@ class PontoController extends Controller
         }
     }
     private function geolocalizacao($latitude, $longitude){
-
         $valida_long = (-23.52000>=$latitude)&&($latitude>=-23.54999);
         $valida_lat = (-46.00000>=$longitude)&&($longitude>=-49.66999);
-
-
-        $bd = DB::table('users')->where('id',$user)->first();
-        $nome = $bd->name;
-        $hora =   $data->format('H:i');
-
         if($valida_long  &&  $valida_lat  ){
-            $endpoint = "https://us1.locationiq.com/v1/reverse.php?key=43706011dbee3d&lat=".$latitude."&lon=".$longitude."&format=json";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $endpoint);
-            curl_setopt($ch, CURLOPT_POST, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            $err = curl_error($ch);  //if you need
-            curl_close ($ch);
-
-
-            $entrada = DB::table('ponto')->where('data', $data->toDateString())->where('controle','entrada')->where('usuario_id',$user)->first();
-            $hoje = DB::table('ponto')->where('data', $data->toDateString())->where('usuario_id',$user)->get()->count();
-            if($hoje >= 2){
-                return response([
-                    'status' => 'erro_ja_efetuou',
-                    'erro' => 'Você já efetuou sua entrada e saída hoje'
-                ]);
-            }
-            else if($entrada){
-                $ponto = new ponto();
-                $ponto->fill([
-                    'nome' =>  $nome,
-                    'usuario_id' => $user,
-                    'longitude' => $longitude,
-                    'latitude' => $latitude,
-                    'data' => $data,
-                    'horario' => $hora,
-                    'controle' => 'saida'
-                ]);
-                $ponto->save();
-            }
-            else{
-
-                if(!empty($user)){
-                    $ponto = new ponto();
-                    $ponto->fill([
-                        'nome' =>  $nome,
-                        'usuario_id' => $user,
-                        'longitude' => $longitude,
-                        'latitude' => $latitude,
-                        'data' => $data,
-                        'horario' => $hora,
-                        'controle' => 'entrada'
-                    ]);
-                    $ponto->save();
-                }
-            }
-            return response([
-                'status' => 'success',
-                'json' => json_decode($response)
-
-            ]);
-
+            return true;
         }
         else{
-            return response([
-                'status' => 'error_fora_trabalho',
-                'erro' => 'Você está fora da área de trabalho']);
+            return false;
+
         }
     }
-
     public function gravar(Request $request){
         //dar um select e colocar o id na api
     }
