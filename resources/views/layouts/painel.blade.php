@@ -93,6 +93,13 @@
                         <span>Estoque</span>
                     </a>
                 </li>
+
+                    <li>
+                        <a href="{{ route('configuracoes') }}">
+                            <span><i class="fas fa-cog"></i></span>
+                            <span>Configurações</span>
+                        </a>
+                    </li>
                 @elseif(\App\User::find(\Illuminate\Support\Facades\Auth::id())->cargo == "RH")
                 <li>
                     <a href="{{ route('funcionarios') }}">

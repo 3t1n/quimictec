@@ -16,6 +16,7 @@ class Permitir extends Migration
         Schema::create('permitir', function (Blueprint $table) {
             $table->increments('id');
             $table->string('modulo');
+            $table->timestamps();
         });
     }
 
