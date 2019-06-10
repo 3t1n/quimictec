@@ -31,7 +31,9 @@ class funcionarios extends Controller
             'numero' => 'required|numeric',
             'complemento' => 'max:255',
             'cargo'=> 'required|max:255',
+            'role' => 'required',
           ],[
+            'role.required' => 'A permisão é requerida',
             'email.unique' => 'O email já está cadastrado!',
             'cpf_cnpj.unique' => 'O cpf ou cnpj já está cadastrado!',
             'nome.required' => 'O nome é requerido',
@@ -47,6 +49,7 @@ class funcionarios extends Controller
             'cargo.required' => 'O cargo é requerido',
           ]);
 
+        $role = $request->input('role');
         $nome = $request->input('nome');
         $departamento = $request->input('departamento');
         $email = $request->input('email');
@@ -78,6 +81,7 @@ class funcionarios extends Controller
             'logradouro' => $logradouro,
             'numero' => $numero,
             'complemento' => $complemento,
+            'role_id' => $role
         ]);
         $funcionario->save();
         
