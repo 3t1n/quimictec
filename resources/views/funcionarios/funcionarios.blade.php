@@ -136,6 +136,18 @@
                          </select>
                          <span class="text-danger">{{ $errors->first('cargo') }}</span>
                      </div>
+                     <div class="form-group col-md-2">
+                         <label for="role" class="font-weight-bold">Permissão</label>
+                         <select id="role"  name="role" class="form-control">
+                             <option selected>Permissões</option>
+                             <option value="1" @if(old('role') == '1')selected @endif>Root</option>
+                             <option value="2" @if(old('role') == '2')selected @endif>Suporte</option>
+                             <option value="3" @if(old('role') == '3')selected @endif>RH</option>
+                             <option value="4" @if(old('role') == '4')selected @endif>Gerente</option>
+                             <option value="5" @if(old('role') == '5')selected @endif>Usuário</option>
+                         </select>
+                         <span class="text-danger">{{ $errors->first('role') }}</span>
+                     </div>
                      <div class="form-group col-md-6 {{ $errors->has('password') ? 'has-error' : '' }}">
                          <label for="password" class="font-weight-bold">Senha</label>
                          <input type="password" class="form-control"  id="password" name="passowrd" placeholder="Digite sua senha" maxlength="18" value="{{ old('password') }}">
