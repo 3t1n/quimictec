@@ -132,7 +132,7 @@ class PontoController extends Controller
             ->where('data', $this->data->toDateString())
             ->orderBy('created_at', 'desc')
             ->first();
-       if($controle->isNotEmpty()){
+       if(isset($controle->isNotEmpty())){
             if($controle->controle == "entrada"){
                 return true;
             }
