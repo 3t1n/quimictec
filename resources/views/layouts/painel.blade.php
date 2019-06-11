@@ -81,19 +81,6 @@
                             <span>Atividade Externa</span>
                         </a>
                     </li>
-                <li>
-                    <a href="{{ route('fornecedores') }}">
-                        <span><i class="fas fa-users"></i></span>
-                        <span>Fornecedores</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('estoque') }}">
-                        <span><i class="fas fa-box-open"></i></span>
-                        <span>Estoque</span>
-                    </a>
-                </li>
-
                     <li>
                         <a href="{{ route('configuracoes') }}">
                             <span><i class="fas fa-cog"></i></span>
